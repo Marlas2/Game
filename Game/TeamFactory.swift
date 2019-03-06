@@ -30,6 +30,11 @@ class TeamFactory {
         print("This Fighter needs a name:")
         print("--------------------------")
     }
+    func berserkerChoosen() {
+        print("----------------------------")
+        print("This Berserker needs a name:")
+        print("----------------------------")
+    }
     
     var teams = [Team]()
     var  uniqueTeamNames = [String]()
@@ -46,6 +51,7 @@ class TeamFactory {
         print("2 : Colossus : 120 HP, 8 Damage")
         print("3 : Magus : 80 HP, 6 Damage")
         print("4 : Fighter : 100 HP, 10 Damage")
+        print("5 : Berseker : 85 HP, 20 Damage, 5 Self Damage")
         
         repeat {
             if let data = readLine() {
@@ -53,7 +59,7 @@ class TeamFactory {
                     choice = dataToInt
                 }
             }
-        } while choice != 1 && choice != 2 && choice != 3 && choice != 4
+        } while choice != 1 && choice != 2 && choice != 3 && choice != 4 && choice != 5
         
         switch choice {
         case 1:
@@ -71,6 +77,10 @@ class TeamFactory {
         case 4:
             fighterChoosen()
             return Fighter(name: uniqueCharacterName())
+        
+        case 5:
+            berserkerChoosen()
+            return Berserker(name: uniqueCharacterName())
             
         default:
             return nil

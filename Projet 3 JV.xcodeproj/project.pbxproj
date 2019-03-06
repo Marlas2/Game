@@ -14,6 +14,8 @@
 		2965E6C82230349200C8B784 /* Dagger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2965E6C72230349200C8B784 /* Dagger.swift */; };
 		2965E6CA223034A100C8B784 /* Saber.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2965E6C9223034A100C8B784 /* Saber.swift */; };
 		2965E6CC2230356F00C8B784 /* Scepter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2965E6CB2230356F00C8B784 /* Scepter.swift */; };
+		2965E6CE223039F900C8B784 /* Berserker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2965E6CD223039F900C8B784 /* Berserker.swift */; };
+		2965E6D022303A3500C8B784 /* DoubleAxe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2965E6CF22303A3500C8B784 /* DoubleAxe.swift */; };
 		298CF60A2209C976006843EF /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298CF6092209C976006843EF /* main.swift */; };
 		298CF6112209C9F3006843EF /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298CF6102209C9F3006843EF /* Character.swift */; };
 		298CF6142209CA5F006843EF /* Fighter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298CF6132209CA5F006843EF /* Fighter.swift */; };
@@ -46,6 +48,8 @@
 		2965E6C72230349200C8B784 /* Dagger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dagger.swift; sourceTree = "<group>"; };
 		2965E6C9223034A100C8B784 /* Saber.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Saber.swift; sourceTree = "<group>"; };
 		2965E6CB2230356F00C8B784 /* Scepter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scepter.swift; sourceTree = "<group>"; };
+		2965E6CD223039F900C8B784 /* Berserker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Berserker.swift; sourceTree = "<group>"; };
+		2965E6CF22303A3500C8B784 /* DoubleAxe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoubleAxe.swift; sourceTree = "<group>"; };
 		298CF6062209C976006843EF /* Projet 3 JV */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "Projet 3 JV"; sourceTree = BUILT_PRODUCTS_DIR; };
 		298CF6092209C976006843EF /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		298CF6102209C9F3006843EF /* Character.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Character.swift; sourceTree = "<group>"; };
@@ -104,6 +108,7 @@
 			children = (
 				298CF6102209C9F3006843EF /* Character.swift */,
 				298CF6192209CAB4006843EF /* Dwarf.swift */,
+				2965E6CD223039F900C8B784 /* Berserker.swift */,
 				298CF6172209CA9C006843EF /* Colossus.swift */,
 				298CF6152209CA7F006843EF /* Magus.swift */,
 				298CF6132209CA5F006843EF /* Fighter.swift */,
@@ -121,6 +126,7 @@
 				2965E6CB2230356F00C8B784 /* Scepter.swift */,
 				2965E6C72230349200C8B784 /* Dagger.swift */,
 				2965E6C32222D90700C8B784 /* Staff.swift */,
+				2965E6CF22303A3500C8B784 /* DoubleAxe.swift */,
 				2965E6C52222D94200C8B784 /* Mace.swift */,
 			);
 			path = Weapons;
@@ -195,11 +201,13 @@
 				298CF623220C75BE006843EF /* TeamFactory.swift in Sources */,
 				298CF6142209CA5F006843EF /* Fighter.swift in Sources */,
 				298CF61F220C7271006843EF /* Weapon.swift in Sources */,
+				2965E6D022303A3500C8B784 /* DoubleAxe.swift in Sources */,
 				298CF6112209C9F3006843EF /* Character.swift in Sources */,
 				298CF6162209CA7F006843EF /* Magus.swift in Sources */,
 				2965E6C82230349200C8B784 /* Dagger.swift in Sources */,
 				2965E6C42222D90700C8B784 /* Staff.swift in Sources */,
 				2965E6C02222D8BB00C8B784 /* Axe.swift in Sources */,
+				2965E6CE223039F900C8B784 /* Berserker.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

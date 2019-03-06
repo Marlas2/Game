@@ -9,6 +9,7 @@
 import Foundation
 
 class Colossus: Character {
+    
     init(name: String) {
         super.init(health: 120, weapon: Mace(), name: name, description: "Strong character", maxHealth: 120)
     }

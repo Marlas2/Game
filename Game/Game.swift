@@ -29,6 +29,12 @@ class Game {
                 print("---------------------")
                 let selectedHero = chooseCharacter(team: team)
                 
+                if let berserker = selectedHero as? Berserker{
+                    print("He will lose  5 HP with this strong attack")
+                    berserker.health -= 5
+                    print("\(selectedHero.name) now have \(selectedHero.health)")
+                }
+                
                 if let magus = selectedHero as? Magus{
                     print("---------------------")
                     print("Choose a hero to heal")
