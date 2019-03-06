@@ -11,16 +11,24 @@ import Foundation
 class TeamFactory {
     
     func dwarfChoosen() {
+        print("------------------------")
         print("This Dwarf needs a name:")
+        print("------------------------")
     }
     func colossusChoosen() {
+        print("----------------------------")
         print("This Colossus needs a name :")
+        print("----------------------------")
     }
     func magusChoosen() {
+        print("------------------------")
         print("This Magus needs a name:")
+        print("------------------------")
     }
     func fighterChoosen() {
+        print("--------------------------")
         print("This Fighter needs a name:")
+        print("--------------------------")
     }
     
     var teams = [Team]()
@@ -31,11 +39,13 @@ class TeamFactory {
     func createCharacter() -> Character? {
         //Renvoie un personnage constitué (nom, arme etc..)
         var choice = 0
+        print("=======================")
         print("Choose your character")
-        print("1 : Dwarf")
-        print("2 : Colossus")
-        print("3 : Magus")
-        print("4 : Fighter")
+        print("=======================")
+        print("1 : Dwarf : 70 HP, 15 Damage")
+        print("2 : Colossus : 120 HP, 8 Damage")
+        print("3 : Magus : 80 HP, 6 Damage")
+        print("4 : Fighter : 100 HP, 10 Damage")
         
         repeat {
             if let data = readLine() {
@@ -132,7 +142,9 @@ class TeamFactory {
         
         var name = ""
         repeat {
+            print("====================")
             print("Enter your team name")
+            print("====================")
             if let choice = readLine(){
                 name = choice
                 if  uniqueTeamNames.contains(name){

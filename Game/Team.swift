@@ -18,6 +18,17 @@ class Team {
         
     }
         // Renvoie true si l'equipe est morte, et renvoie false si 1 membre mini vivant
-
+    func isDead() -> Bool {
+        var isDead = false
+        for character in characters {
+            if character.health <= 0 {
+              isDead = true
+            } else {
+                return false
+            }
+    
+        }
+        return isDead
+    }
 
 }

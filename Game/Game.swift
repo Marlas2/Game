@@ -17,21 +17,32 @@ class Game {
         teamFactory.createTeams()
         teams = teamFactory.teams
         battle()
+        
     }
     func battle() {
         //Boucle infinie
         while true { // Symbolise le jeu dans sa globalité tourne tant que
             for i in 0..<2 {
                 let team = teams[i]
+                print("---------------------")
                 print("Choose the assailant:")
+                print("---------------------")
                 let selectedHero = chooseCharacter(team: team)
                 
                 if let magus = selectedHero as? Magus{
+                    print("---------------------")
                     print("Choose a hero to heal")
-                    let healing = chooseCharacter(team: team)
-                    magus.healHero(healedHero: healing)
+                    print("---------------------")
+                    let heroToHeal = chooseCharacter(team: team)
+                    magus.healHero(healedHero: heroToHeal)
+                    print("\(selectedHero.name) now have \(selectedHero.health) health point")
                 }else{
-                    ennemyChoice(team: team, indexTeam: i, selectedHero: selectedHero)
+                    ennemyChoice(indexTeam: i, selectedHero: selectedHero)
+                }
+                if i == 0 {
+                    if teams[i+1].isDead(){return}
+                } else {
+                    if teams[i-1].isDead(){return}
                 }
                 //Un personnage attaque ou soigne un autre personnage
                 //Equipe 1 attaque Equipe 2, puis inversement
@@ -44,7 +55,7 @@ class Game {
                 //Attaquer le membre sélectionné
                 
             }
-        }
+        } 
     }
     func choiceHero() -> Int{
         var choice = 0
@@ -79,20 +90,24 @@ class Game {
         return selectedCharacter
     }
     
-    func teamAttack(ennemyTeam: Team, selectedHero: Character, team: Team){
+    func teamAttack(ennemyTeam: Team, selectedHero: Character){
         let selectedEnnemy = chooseCharacter(team: ennemyTeam)
         selectedHero.attack(ennemy: selectedEnnemy)
-        print("\(selectedHero.name) now have \(selectedHero.health) health point")
+        print("=================================================================")
+        print("\(selectedEnnemy.name) now have \(selectedEnnemy.health) health point")
+        print("=================================================================")
     }
     
-    func ennemyChoice(team: Team, indexTeam: Int, selectedHero: Character) {
+    func ennemyChoice(indexTeam: Int, selectedHero: Character) {
+        print("-------------------")
         print("Choose your target:")
+        print("-------------------")
         if indexTeam == 0{
             let ennemyTeam = teamFactory.teams[indexTeam+1]
-            teamAttack(ennemyTeam: ennemyTeam, selectedHero: selectedHero, team: team)
+            teamAttack(ennemyTeam: ennemyTeam, selectedHero: selectedHero)
         } else {
             let ennemyTeam = teamFactory.teams[indexTeam-1]
-            teamAttack(ennemyTeam: ennemyTeam, selectedHero: selectedHero, team: team)
+            teamAttack(ennemyTeam: ennemyTeam, selectedHero: selectedHero)
         }
     }
 }
@@ -101,4 +116,8 @@ class Game {
 
 
 
+//Beaucoup de print
+//Bonus
+//Coffre
+//Commits !!!!!!!!!!!
 
