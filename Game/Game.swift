@@ -44,16 +44,7 @@ class Game {
                 } else {
                     if teams[i-1].isDead(){return}
                 }
-                //Un personnage attaque ou soigne un autre personnage
-                //Equipe 1 attaque Equipe 2, puis inversement
-                //Rappel des caract des personnages
-                //Selection du personnage qui fait l'action
-                //Mage ou pas ?
-                //Si Mage selection d'un membre de sa propre equipe
-                //Soigner le membre séléctionné
-                //Si pas Mage selection membre equipe adverse
-                //Attaquer le membre sélectionné
-                
+                randomChest(selectedHero: selectedHero)
             }
         } 
     }
@@ -110,6 +101,26 @@ class Game {
             teamAttack(ennemyTeam: ennemyTeam, selectedHero: selectedHero)
         }
     }
+    func randomChest(selectedHero: Character){
+        let chest = Bool.random()
+        if chest == true  {
+            print("See, a Chest appear !")
+            if let magus  = selectedHero as? Magus{
+                magus.weapon =  Scepter()
+                print("\(selectedHero.name) use the \(selectedHero.weapon.weaponName) to fight !")
+            }else{
+                let newWeapons = Bool.random()
+                if  newWeapons == true {
+                    selectedHero.weapon = Dagger()
+                }else{
+                    selectedHero.weapon = Saber()
+                }
+                print("\(selectedHero.name) use the \(selectedHero.weapon.weaponName) to fight")
+            }
+            
+        }
+    }
+    
 }
 
 
