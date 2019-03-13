@@ -9,6 +9,7 @@
 import Foundation
 
 class Mace: Weapon {
+    
     init(){
         super.init(damage: 8, weaponName: "Mace", heal: 0)
     }

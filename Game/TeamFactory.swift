@@ -10,27 +10,31 @@ import Foundation
 
 class TeamFactory {
     
-    func dwarfChoosen() {
+    private func dwarfChoosen() {
         print("------------------------")
         print("This Dwarf needs a name:")
         print("------------------------")
     }
-    func colossusChoosen() {
+    
+    private func colossusChoosen() {
         print("----------------------------")
         print("This Colossus needs a name :")
         print("----------------------------")
     }
-    func magusChoosen() {
+    
+    private func magusChoosen() {
         print("------------------------")
         print("This Magus needs a name:")
         print("------------------------")
     }
-    func fighterChoosen() {
+    
+    private func fighterChoosen() {
         print("--------------------------")
-        print("This Fighter needs a name:")
+        print("This Fighter needs a name")
         print("--------------------------")
     }
-    func berserkerChoosen() {
+    
+    private func berserkerChoosen() {
         print("----------------------------")
         print("This Berserker needs a name:")
         print("----------------------------")
@@ -40,9 +44,7 @@ class TeamFactory {
     var  uniqueTeamNames = [String]()
     var uniqueCharacterNames = [String]()
     
-    
-    func createCharacter() -> Character? {
-        //Renvoie un personnage constitué (nom, arme etc..)
+    private func createCharacter() -> Character? { //function that create a character and print their stats
         var choice = 0
         print("=======================")
         print("Choose your character")
@@ -77,7 +79,7 @@ class TeamFactory {
         case 4:
             fighterChoosen()
             return Fighter(name: uniqueCharacterName())
-        
+            
         case 5:
             berserkerChoosen()
             return Berserker(name: uniqueCharacterName())
@@ -85,19 +87,10 @@ class TeamFactory {
         default:
             return nil
         }
-        
-        
-        
     }
     
-    
-    
-    
-    func createCharacters() -> [Character] {
-        // var characters = [Character]()
-        //Boucle qui tourne 3 fois, return de characters
+    private func createCharacters() -> [Character] { // Place each character in a canvas named Character
         var characters = [Character]()
-        
         for _ in 0..<3 {
             let character = createCharacter()
             guard let currentCharacter = character else {
@@ -105,33 +98,24 @@ class TeamFactory {
                 return characters
             }
             characters.append(currentCharacter)
-            
         }
         return characters
     }
     
-    // Renvoie un tableau de character
-    
-    func createTeam() -> Team {
-        //Servir de createCharacters, créer une équipe
+    private func createTeam() -> Team { // Use the canvas to create a team
         let team = Team(name: uniqueTeamName())
         team.characters = createCharacters()
         return team
-        //Renvoie une équipe constituée
     }
     
-    func createTeams() {
-        //Boucle qui tourne 2 fois (2 équipes) appelle la fonction createTeam et stock ces 2 equipes dans le tableau de teams ligne 12
-        //Remplir la variable L12 avec autant d'équipe que demandé (2)
+    func createTeams() { // a loop to create 2 teams
         for _ in 0..<2 {
             let team = createTeam()
             teams.append(team)
         }
     }
     
-    func uniqueCharacterName() -> String {
-        //Créer tableau class TFactory qui va accueillir tous les noms des persos
-        //Check si nom est pris ou pas
+    private func uniqueCharacterName() -> String { // check if the name is unique in uniqueCharacterNames
         var name: String = ""
         repeat {
             if let choice = readLine(){
@@ -148,7 +132,7 @@ class TeamFactory {
         return name
     }
     
-    func uniqueTeamName() -> String {
+    private func uniqueTeamName() -> String { // bonus to check if the team name is unique or not
         
         var name = ""
         repeat {

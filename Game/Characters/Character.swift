@@ -24,9 +24,7 @@ class Character {
         self.maxHealth = maxHealth
     }
     
-    
-    
-    func isDead() -> Bool{
+    func isDead() -> Bool{ //print the name of the dead character 
         if health<=0{
             print("\(name) is dead")
             return true
@@ -34,7 +32,7 @@ class Character {
         return false
     }
     
-    func attack(ennemy: Character) {
+    func attack(ennemy: Character) { // function to print the name of the assailant and the target
         if health >= 0 {
             ennemy.health = ennemy.health - weapon.damage
             if ennemy.health <= 0 {

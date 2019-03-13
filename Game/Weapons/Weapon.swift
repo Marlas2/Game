@@ -14,8 +14,8 @@ class Weapon {
     let heal: Int
     
     init(damage: Int, weaponName: String, heal: Int) {
-    self.damage = damage
-    self.weaponName = weaponName
-    self.heal = heal
+        self.damage = damage
+        self.weaponName = weaponName
+        self.heal = heal
     }
 }

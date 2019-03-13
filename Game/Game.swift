@@ -12,36 +12,37 @@ class Game {
     let teamFactory = TeamFactory()
     var teams = [Team]()
     
-    
-    func start() {
+    func start() {  //start the game
         teamFactory.createTeams()
         teams = teamFactory.teams
         battle()
         
     }
-    func battle() {
-        //Boucle infinie
-        while true { // Symbolise le jeu dans sa globalité tourne tant que
+    
+    func battle() { // The battle in a loop
+        while true {
             for i in 0..<2 {
                 let team = teams[i]
+                showTeamName(team: team)
                 print("---------------------")
-                print("Choose the assailant:")
+                print("⚔️ Choose the assailant: ⚔️")
                 print("---------------------")
-                let selectedHero = chooseCharacter(team: team)
                 
-                if let berserker = selectedHero as? Berserker{
+                let selectedHero = chooseCharacter(team: team) // select a hero to attack or heal an other character
+                
+                if let berserker = selectedHero as? Berserker{ // Bonus, new character
                     print("He will lose  5 HP with this strong attack")
                     berserker.health -= 5
-                    print("\(selectedHero.name) now have \(selectedHero.health)")
+                    print("\(selectedHero.name) now have \(selectedHero.health) ❤️")
                 }
                 
-                if let magus = selectedHero as? Magus{
+                if let magus = selectedHero as? Magus{ // If Magus heal an an ally, if everyone in his team is dead, attack an ennemy
                     print("---------------------")
-                    print("Choose a hero to heal")
+                    print("🚑 Choose a hero to heal 🚑")
                     print("---------------------")
                     let heroToHeal = chooseCharacter(team: team)
                     magus.healHero(healedHero: heroToHeal)
-                    print("\(selectedHero.name) now have \(selectedHero.health) health point")
+                    print("\(selectedHero.name) now have \(selectedHero.health) health point ❤️ ")
                 }else{
                     ennemyChoice(indexTeam: i, selectedHero: selectedHero)
                 }
@@ -52,9 +53,10 @@ class Game {
                 }
                 randomChest(selectedHero: selectedHero)
             }
-        } 
+        }
     }
-    func choiceHero() -> Int{
+    
+    private func choiceHero() -> Int{  // Player will chose a hero
         var choice = 0
         var indexTeam = 0
         repeat {
@@ -78,26 +80,26 @@ class Game {
         return indexTeam
     }
     
-    func chooseCharacter(team: Team) -> Character{
+    private func chooseCharacter(team: Team) -> Character{
         var selectedCharacter = team.characters[choiceHero()]
-        while selectedCharacter.isDead() == true{
+        while selectedCharacter.isDead() == true{ // check if the selected character is alive, if not chose an other character
             let choice = team.characters[choiceHero()]
             selectedCharacter = choice
         }
         return selectedCharacter
     }
     
-    func teamAttack(ennemyTeam: Team, selectedHero: Character){
+    private func teamAttack(ennemyTeam: Team, selectedHero: Character){  // Attack an ennemy and print his name and health
         let selectedEnnemy = chooseCharacter(team: ennemyTeam)
         selectedHero.attack(ennemy: selectedEnnemy)
         print("=================================================================")
-        print("\(selectedEnnemy.name) now have \(selectedEnnemy.health) health point")
+        print("\(selectedEnnemy.name) now have \(selectedEnnemy.health) health point ❤️")
         print("=================================================================")
     }
     
-    func ennemyChoice(indexTeam: Int, selectedHero: Character) {
+    private func ennemyChoice(indexTeam: Int, selectedHero: Character) { // Chose the target you want to attack
         print("-------------------")
-        print("Choose your target:")
+        print("🎯 Choose your target 🎯:")
         print("-------------------")
         if indexTeam == 0{
             let ennemyTeam = teamFactory.teams[indexTeam+1]
@@ -107,10 +109,11 @@ class Game {
             teamAttack(ennemyTeam: ennemyTeam, selectedHero: selectedHero)
         }
     }
-    func randomChest(selectedHero: Character){
-        let chest = Bool.random()
-        if chest == true  {
-            print("See, a Chest appear !")
+    
+    private func randomChest(selectedHero: Character){ // random chest, if magus appear a scepter, if not appear a dagger or a saber.
+        let randomNumber = Int.random(in: 0...5)
+        if randomNumber ==  3 {
+            print("🎁 See, a Chest appear ! 🎁")
             if let magus  = selectedHero as? Magus{
                 magus.weapon =  Scepter()
                 print("\(selectedHero.name) use the \(selectedHero.weapon.weaponName) to fight !")
@@ -123,18 +126,16 @@ class Game {
                 }
                 print("\(selectedHero.name) use the \(selectedHero.weapon.weaponName) to fight")
             }
-            
         }
     }
     
+    private func showTeamName(team: Team){ // print the name of the team
+        print("")
+        print("===============================")
+        print("Team \(team.nameOfTheTeam)")
+        print("===============================")
+    }
 }
 
-
-
-
-
-//Beaucoup de print
-//Bonus
-//Coffre
-//Commits !!!!!!!!!!!
-
+// 17/23 minutes, resituer le contexte du projet
+//Commentaires/Private/Sauts de  ligne/Commits/Compte tour/ PDF Bonus/ Indentation
